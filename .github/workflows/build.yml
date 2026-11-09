@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - 'LICENSE'
+      - 'NOTICE'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Windows / Release
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore ImageCompression.sln
+
+      - name: Build
+        run: dotnet build ImageCompression.sln -c Release --no-restore
+
+      - name: Publish
+        run: dotnet publish ImageCompression/ImageCompression.csproj -c Release -o dist
+
+      - name: Include license notices
+        shell: pwsh
+        run: Copy-Item LICENSE, NOTICE, THIRD-PARTY-NOTICES.md -Destination dist
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-compressor-pro-win-anycpu
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14

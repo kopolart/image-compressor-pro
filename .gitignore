@@ -1,0 +1,69 @@
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+build/
+bld/
+bin/
+obj/
+out/
+publish/
+dist/
+
+## Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.pubxml.user
+*.publishproj
+*.cache
+*.tlog
+*.log
+*.binlog
+TestResults/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+[Bb]uildLog.htm
+ipch/
+*.VC.db
+*.VC.opendb
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.vsconfig
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+!packages/build/
+*.nuget.props
+*.nuget.targets
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+## macOS / Linux
+.DS_Store
+.AppleDouble
+.LSOverride
+*~
+
+## Application output (built artifacts are attached to Releases, never committed)
+*.exe
+*.pdb
+*.dll
+
+## Local publish profiles
+Properties/PublishProfiles/*.pubxml.user

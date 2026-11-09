@@ -1,0 +1,101 @@
+name: Bug report
+description: Report a reproducible problem with the application
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please search existing issues
+        first, and do not attach personal or private photos.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the problem and what you expected instead.
+      placeholder: The saved WebP file is completely black when the source has transparency.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps, including values for width, height, quality, format and quality mode.
+      placeholder: |
+        1. Open a transparent PNG
+        2. Set output format to WebP
+        3. Set quality to 100
+        4. Click Process Image, then Save Image
+        5. Open the saved file in a viewer
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: The release version you downloaded, or the commit hash if you built from source.
+      placeholder: v1.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      description: Run `winver` if you are not sure.
+      placeholder: Windows 11 23H2 (22631.4169)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: input-format
+    attributes:
+      label: Input image format
+      options:
+        - JPEG
+        - PNG
+        - WebP
+        - BMP
+        - GIF
+        - TIFF
+        - Other or not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: output-format
+    attributes:
+      label: Output format
+      options:
+        - JPEG
+        - PNG
+        - WebP
+        - BMP
+        - GIF
+        - TIFF
+        - Other or not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or additional context
+      description: Drag and drop images or logs here. Redact any personal information.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I am using the latest release or the current main branch.
+          required: true
+        - label: I have removed private information from the screenshots and files attached.
+          required: true

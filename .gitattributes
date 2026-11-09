@@ -1,0 +1,37 @@
+# Normalize text files on commit, keep native line endings in the working tree.
+* text=auto
+
+# Source files: diff as C# and keep CRLF for Visual Studio.
+*.cs      text diff=csharp eol=crlf
+*.csproj  text eol=crlf
+*.sln     text eol=crlf
+*.resx    text eol=crlf
+*.config  text eol=crlf
+*.pubxml  text eol=crlf
+*.manifest text eol=crlf
+
+# Docs and CI files: LF is fine everywhere.
+*.md      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.json    text eol=lf
+*.svg     text eol=lf
+.editorconfig text eol=lf
+.gitignore    text eol=lf
+.gitattributes text eol=lf
+
+# Binary assets.
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.webp    binary
+*.ico     binary
+*.exe     binary
+*.dll     binary
+*.pdb     binary
+*.nupkg   binary
+
+# GitHub language statistics.
+*.sln linguist-detectable=false
+*.resx linguist-detectable=false
